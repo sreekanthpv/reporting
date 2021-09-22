@@ -11,5 +11,9 @@ urlpatterns=[
   # path('batches/view', views.ListBatch.as_view(), name="listbatches"),
   path('batch/update/<int:id>', views.EditBatch.as_view(), name="editbatch"),
   path('temp',views.Temp.as_view(),name="temp"),
+  path("accounts/login",views.SignInView.as_view(),name="signin"),
+  path("accounts/logout", views.SignOut.as_view(), name="signout"),
+
+  path("users/home",views.UserHome.as_view(),name="userhome")
 
 ]

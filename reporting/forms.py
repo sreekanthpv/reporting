@@ -37,3 +37,10 @@ class BatchAddForm(forms.ModelForm):
             "batch_name": forms.TextInput(attrs={"class": "form-control"}),
 
         }
+
+# sajay  22
+
+class SigninForm(forms.Form):
+    email=forms.CharField(widget=forms.EmailInput())
+    password=forms.CharField(widget=forms.PasswordInput())
+

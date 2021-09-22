@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{%extends 'reporting/base.html'%}
+{%block body_block%}
+  <section id="featured" class="featured m-5">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="icon-box">
+              <h3><a href="{%url 'adduser'%}">USER MANAGEMENT</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="icon-box">
+              <h3><a href="{%url 'addbatch'%}">BATCH MANAGEMENT</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="icon-box">
+              <h3><a href="{%url 'addcourse'%}">COURSE MANAGEMENT</a></h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+{%endblock%}

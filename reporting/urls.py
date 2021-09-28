@@ -15,6 +15,7 @@ urlpatterns=[
   # path('courses/view', views.ListCourses.as_view(), name="listcourses"),
   # path('batches/view', views.ListBatch.as_view(), name="listbatches"),
   path('batch/update/<int:id>', views.EditBatch.as_view(), name="editbatch"),
+<<<<<<< HEAD
   path('users/timesheet/add', views.AddTimesheetview.as_view(), name="addtimesheet"),
   path('users/timesheet/view', views.Timesheets.as_view(), name="listtimesheet"),
   path('timesheet/change/<int:id>',views.EditTimesheet.as_view(),name='edittimesheet'),
@@ -22,5 +23,12 @@ urlpatterns=[
   path('admin/timesheet/verify/<int:id>', views.Verify.as_view(), name="verify"),
   path('timesheet/search',views.TimeSheetSearch.as_view(),name="search"),
   path('timesheet/remove/<int:id>', views.RemoveTimeSheet.as_view(), name="deletetimesheet"),
+=======
+  path('temp',views.Temp.as_view(),name="temp"),
+  path("accounts/login",views.SignInView.as_view(),name="signin"),
+  path("accounts/logout", views.SignOut.as_view(), name="signout"),
+
+  path("users/home",views.UserHome.as_view(),name="userhome")
+>>>>>>> 1c63d94d68bfd45fd4bbeaf578cc1d4350b7512b
 
 ]

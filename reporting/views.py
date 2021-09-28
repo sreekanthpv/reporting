@@ -5,6 +5,7 @@ from reporting import forms
 from django.views.generic import TemplateView, CreateView, ListView, UpdateView,DeleteView
 from reporting.models import MyUser, Batch, Course, TimeSheet
 from django.urls import reverse_lazy
+<<<<<<< HEAD
 from django.contrib.auth import authenticate, login, logout
 from reporting.filters import TimeSheetFilter
 from django_filters.views import FilterView
@@ -14,6 +15,9 @@ from reporting.decorators import signin_required
 
 
 
+=======
+from django.contrib.auth import authenticate,login,logout
+>>>>>>> 1c63d94d68bfd45fd4bbeaf578cc1d4350b7512b
 class AdminHome(TemplateView):
     # def get(self,request,*args,**kwargs):
     #     return render(request,"reporting/admin_home.html")
@@ -245,9 +249,45 @@ class RemoveTimeSheet(DeleteView):
 
 
 
+<<<<<<< HEAD
 # def delete(request,id):
 #     timesheet=TimeSheet.objects.get(id=id)
 #     # print(timesheet)
 #     timesheet.delete()
 #     # timesheet.save()
 #     return redirect("listtimesheet")
+=======
+
+class SignInView(TemplateView):
+    template_name = "reporting/user_login.html"
+    form_class=forms.SigninForm
+
+
+
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        context["form"]=self.form_class()
+        return context
+
+    def post(self,request,*args,**kwargs):
+        form=self.form_class(request.POST)
+        if form.is_valid():
+            email=form.cleaned_data["email"]
+            password=form.cleaned_data["password"]
+            user=authenticate(request,username=email,password=password)
+            if user:
+                login(request,user)
+                print("success")
+
+                return redirect("userhome")
+
+class UserHome(TemplateView):
+    template_name = "reporting/user_home.html"
+
+class SignOut(TemplateView):
+
+
+    def get(self, request, *args, **kwargs):
+        logout(request)
+        return redirect("signin")
+>>>>>>> 1c63d94d68bfd45fd4bbeaf578cc1d4350b7512b

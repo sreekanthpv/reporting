@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{%extends 'reporting/base.html'%}
+{%block body_block%}
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <h1>Welcome {{request.user}}</h1>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+<section id="featured" class="featured m-5">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="icon-box">
+                    <h3><a href="" style="text-decoration:none;">AddTimeSheet</a></h3>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-4 mt-lg-0">
+                <div class="icon-box">
+                    <h3><a href="" style="text-decoration:none;">ViewTimeSheets</a></h3>
+                </div>
+            </div>
+<!--            <div class="col-lg-4 mt-4 mt-lg-0">-->
+<!--                <div class="icon-box">-->
+<!--                    <h3><a href="">COURSE MANAGEMENT</a></h3>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+    </div>
+</section>
+
+
+{%endblock%}

@@ -4,6 +4,7 @@ from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
 
+
 class MyUserManager(BaseUserManager):
     def create_user(self, email, role, password=None):
         """
@@ -15,14 +16,14 @@ class MyUserManager(BaseUserManager):
 
         user = self.model(
             email=self.normalize_email(email),
-           role=role,
+            role=role,
         )
 
         user.set_password(password)
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email,role, password=None):
+    def create_superuser(self, email, role, password=None):
         """
         Creates and saves a superuser with the given email, date of
         birth and password.
@@ -30,14 +31,11 @@ class MyUserManager(BaseUserManager):
         user = self.create_user(
             email,
             password=password,
-           role=role,
+            role=role,
         )
         user.is_admin = True
         user.save(using=self._db)
         return user
-
-
-
 
 
 class MyUser(AbstractBaseUser):
@@ -46,19 +44,19 @@ class MyUser(AbstractBaseUser):
         max_length=255,
         unique=True,
     )
-    options=(("hr","hr"),
-             ("faculty","faculty"),
-             ("counsilor","counsilor"),
-             )
+    options = (("hr", "hr"),
+               ("faculty", "faculty"),
+               ("counsilor", "counsilor"),
+               )
 
-    role=models.CharField(max_length=30,choices=options,default="faculty")
+    role = models.CharField(max_length=30, choices=options, default="faculty")
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
 
     objects = MyUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['role','password']
+    REQUIRED_FIELDS = ['role', 'password']
 
     def __str__(self):
         return self.email
@@ -81,16 +79,31 @@ class MyUser(AbstractBaseUser):
 
 
 class Course(models.Model):
-    course_name=models.CharField(max_length=30,unique=True)
-    is_active=models.BooleanField(default=True)
+    course_name = models.CharField(max_length=30, unique=True)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.course_name
 
+
 class Batch(models.Model):
-    course=models.ForeignKey(Course,on_delete=models.CASCADE)
-    batch_name=models.CharField(max_length=30,unique=True)
-    is_active=models.BooleanField(default=True)
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    batch_name = models.CharField(max_length=30, unique=True)
+    is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.batch_name
+
+
+class TimeSheet(models.Model):
+    user = models.CharField(max_length=30)
+    batch = models.ForeignKey(Batch, on_delete=models.CASCADE)
+    date = models.DateField(auto_now_add=True,null=True)                                  #auto_now_add=True  (to automatically add date)
+    topic = models.CharField(max_length=100)
+    options = (
+        ("completed", "completed"),
+        ("in_progress", "in_progress"),
+
+    )
+    topic_status = models.CharField(max_length=20, choices=options, default="in_progress")
+    verified = models.BooleanField(default=False)

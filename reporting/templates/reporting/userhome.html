@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{%extends 'reporting/base.html'%}
+{%block body_block%}
+<div class="container m-5">
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4 text-center">
+            <h3 class="fw-bold" style="color:#5a5a5a">signed as : {{request.user}}</h3>
+        </div>
+        <div class="col-4"></div>
+    </div>
+</div>
+
+<section id="featured" class="featured m-5">
+    <div class="container">
+
+        <div class="row">
+<!--            <div class="col-lg-4">-->
+<!--                <div class="">-->
+<!--                    <h3><a href=""></a></h3>-->
+<!--                </div>-->
+<!--            </div>-->
+            <div class="col-lg-6 mt-6 mt-lg-0">
+                <div class="icon-box">
+                    <h3><a href="{%url 'addtimesheet'%}" class="text-decoration-none"> AddTimeSheet</a></h3>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-6 mt-lg-0">
+                <div class="icon-box">
+                    <h3><a href="{%url 'listtimesheet'%}" class="text-decoration-none">ViewTimeSheet</a></h3>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-4 mt-lg-0">
+                <div class="">
+                    <h3><a href=""></a></h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+{%endblock%}

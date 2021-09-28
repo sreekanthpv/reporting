@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{%extends 'reporting/base.html'%}
+{%block body_block%}
+<div class="container m-5">
+    <div class="row m-5 p-2">
+        <div class="col-4"></div>
+        <div class="col-4 text-center">
+            <h4 class="fw-bold" style="color:#5d5d5d;">ADMIN TIME SHEETS </h4>
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+        <div class="col-4">
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <a href="{%url 'search'%}" class="icon-box btn bg-success text-light">Search By Filter =></a>
+                </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-8">
+            <table class="table">
+                <tr>
+                    <td>username</td>
+                    <td>batch</td>
+                    <td>topic</td>
+                    <td>topic status</td>
+                    <td>date</td>
+                    <td>verify</td>
+                    <td>action</td>
+                </tr>
+
+                {%for timesheet in timesheets%}
+                <tr>
+                    <td>{{timesheet.user}}</td>
+                    <td>{{timesheet.batch}}</td>
+                    <td>{{timesheet.topic}}</td>
+                    <td>{{timesheet.topic_status}}</td>
+                    <td>{{timesheet.date}}</td>
+                    <td>{{timesheet.verified}}</td>
+
+
+
+                    <!--#or if not timesheet.verified-->
+                    {%if timesheet.verified == False %}
+                    <td><a href="{%url 'verify' timesheet.id %}" class="btn btn-success">verify</a></td>
+                    {%endif%}
+
+                </tr>
+                {%endfor%}
+            </table>
+        </div>
+        <div class="col-4">
+
+        </div>
+
+    </div>
+</div>
+{%endblock%}

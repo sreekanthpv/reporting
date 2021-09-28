@@ -1,27 +1,50 @@
 <!DOCTYPE html>
+
 {%extends 'reporting/base.html'%}
 {%block body_block%}
-  <section id="featured" class="featured m-5">
-      <div class="container">
+{%load static%}
+<section id="featured" class="featured m-5">
+    <div class="container table">
 
         <div class="row">
-          <div class="col-lg-4">
-            <div class="icon-box">
-              <h3><a href="{%url 'adduser'%}">USER MANAGEMENT</a></h3>
+            <div class="col-lg-6">
+                <div class="icon-box">
+                    <h3><a href="{%url 'adduser'%}" class="text-decoration-none">USER MANAGEMENT</a></h3>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="icon-box">
-              <h3><a href="{%url 'addbatch'%}">BATCH MANAGEMENT</a></h3>
+            <div class="col-lg-6">
+                <div class="icon-box">
+                    <h3><a href="{%url 'addbatch'%}" class="text-decoration-none"> BATCH MANAGEMENT</a></h3>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="icon-box">
-              <h3><a href="{%url 'addcourse'%}">COURSE MANAGEMENT</a></h3>
+
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="icon-box">
+                        <h3><a href="{%url 'addcourse'%}" class="text-decoration-none">COURSE MANAGEMENT</a></h3>
+                    </div>
+                </div>
+                 <div class="col-lg-6">
+                    <div class="icon-box">
+                        <h3><a href="{%url 'admintimesheet'%}" class="text-decoration-none">VIEW TIMESHEET</a></h3>
+                    </div>
+                </div>
             </div>
-          </div>
+
         </div>
 
-      </div>
-    </section>
+        <div class="container m-5">
+            <div class="row">
+
+                <div>
+                    <!--                <img src="{%static 'assets/img/reporting.jpg' %}" alt="" style="height:300px;">-->
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</section>
 {%endblock%}

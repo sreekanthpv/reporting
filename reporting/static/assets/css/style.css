@@ -8,9 +8,16 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+.b{
+    background-color:red;
+}
+
+
 body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
+  background-color: #18d26e;
 }
 
 a {

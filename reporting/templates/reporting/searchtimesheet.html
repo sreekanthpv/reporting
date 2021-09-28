@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{%extends 'reporting/base.html'%}
+{%block body_block%}
+<div class="container m-5">
+    <div class="row">
+        <form action="" method="get">
+            {{filter.form}}
+            {{filter.batch}}
+            <button type="submit" class="btn btn-info m-2">search</button>
+        </form>
+    </div>
+    <div class="row m-5">
+
+          <table class="table">
+                <tr>
+                    <td>username</td>
+                    <td>batch</td>
+                    <td>topic</td>
+                    <td>topic status</td>
+                    <td>date</td>
+                    <td>admin varified</td>
+                    <td>action</td>
+                </tr>
+
+                {%for timesheet in filter.qs%}
+                <tr>
+                    <td>{{timesheet.user}}</td>
+                    <td>{{timesheet.batch}}</td>
+                    <td>{{timesheet.topic}}</td>
+                    <td>{{timesheet.topic_status}}</td>
+                    <td>{{timesheet.date}}</td>
+                    <td>{{timesheet.verified}}</td>
+                </tr>
+                    {%endfor%}
+            </table>
+
+    </div>
+</div>
+{%endblock%}

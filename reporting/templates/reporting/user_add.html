@@ -5,13 +5,15 @@
      <div class="row m-5 p-2">
         <div class="col-4"></div>
         <div class="col-4 text-center">
-            <h4> USER MANAGEMENT</h4>
+            <h4 class="fw-bold" style="color:#5d5d5d;"> USER MANAGEMENT</h4>
         </div>
         <div class="col-4"></div>
     </div>
+
+
     <div class="row">
-<!--        <div class="col-4"></div>-->
-        <div class="col-4">
+        <div class="col-4 col col-lg-3"></div>
+        <div class="col-4 col col-lg-3">
             <form action="" method="post">
                 {%csrf_token%}
                 {{form.as_p}}
@@ -19,9 +21,8 @@
             </form>
 
         </div>
-        <div class="col-2"></div>
-        <div class="col-4">
-              <table class="table">
+        <div class="col-4 col col-lg-3">
+              <table class="table ms-5">
                 <tr>
                     <td>username</td>
                     <td>role</td>
@@ -40,6 +41,8 @@
                 {%endfor%}
             </table>
         </div>
+                <div class="col-4  col col-lg-3"></div>
+
     </div>
 </div>
 {%endblock%}

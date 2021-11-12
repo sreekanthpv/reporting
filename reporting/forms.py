@@ -39,8 +39,6 @@ class BatchAddForm(forms.ModelForm):
 
         }
 
-<<<<<<< HEAD
-
 class UserLoginForm(forms.Form):
     email=forms.CharField(widget=(forms.EmailInput(attrs={"class":"form-control"})))
     password=forms.CharField(widget=(forms.PasswordInput(attrs={"class":"form-control"})))
@@ -83,11 +81,11 @@ class AddTimeSheetForm(forms.ModelForm):
 
 
 
-=======
+
 # sajay  22
 
-class SigninForm(forms.Form):
-    email=forms.CharField(widget=forms.EmailInput())
-    password=forms.CharField(widget=forms.PasswordInput())
->>>>>>> 1c63d94d68bfd45fd4bbeaf578cc1d4350b7512b
+# class SigninForm(forms.Form):
+#     email=forms.CharField(widget=forms.EmailInput())
+#     password=forms.CharField(widget=forms.PasswordInput())
+#
 
